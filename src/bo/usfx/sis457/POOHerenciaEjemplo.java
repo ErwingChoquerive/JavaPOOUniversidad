@@ -189,7 +189,7 @@ public class POOHerenciaEjemplo {
         while(true) {
             System.out.print("\nPresione M para continuar...");
             opcion = entradaTeclado.next();
-            if (opcion.equals("M")) {
+            if ((opcion.equals("M"))||(opcion.equals("m"))) {
                 break;
             }
         }
