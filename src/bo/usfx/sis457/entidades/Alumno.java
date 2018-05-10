@@ -20,7 +20,8 @@ public class Alumno extends Persona {
     protected int Semestre;
     protected String Asignaturas;
     
-    public Alumno(String asignaturas,String carnetUniversitario, int semestre, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
+    public Alumno(String carnetUniversitario,int semestre, String asignaturas, 
+            String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
         super(carnetIdentidad, nombre, fechaNacimiento);
         this.CarnetUniversitario = carnetUniversitario;
         this.Semestre = semestre;
@@ -29,15 +30,15 @@ public class Alumno extends Persona {
     }
     
     public Alumno(String carnetUniversitario, int semestre, String asignaturas) {
-        super();
         this.CarnetUniversitario = carnetUniversitario;
         this.Semestre = semestre;
         this.Asignaturas=asignaturas;
         //System.out.println("Se crea un Alumno");
     }
-
-    public Alumno(String carnetUniversitario, int semestre, String asignatura, String carnetIdentidad, String nombre, Calendar fechaNacimientoCalendario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public Alumno()
+    {
+        this("00-0000",0,"Sin_Asignatura");
     }
     
     public String getCarnetUniversitario() {

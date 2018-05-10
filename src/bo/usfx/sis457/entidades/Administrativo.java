@@ -19,12 +19,25 @@ public class Administrativo extends Persona
     protected String LugarTrabajo;
     protected Calendar FechaIngreso;
     
-    public Administrativo(String cargo,String lugarTrabajo,Calendar fechaIngreso,String carnetIdentidad,String nombre,Calendar fechaNacimiento)
+    public Administrativo(String cargo,String lugarTrabajo,Calendar fechaIngreso,
+            String carnetIdentidad,String nombre,Calendar fechaNacimiento)
     {
        super(carnetIdentidad, nombre, fechaNacimiento);
        this.Cargo= cargo;
        this.LugarTrabajo= lugarTrabajo;
        this.FechaIngreso= fechaIngreso;
+    }
+    
+    public Administrativo(String cargo,String lugarTrabajo,Calendar fechaIngreso)
+    {
+        this.Cargo=cargo;
+        this.LugarTrabajo=lugarTrabajo;
+        this.FechaIngreso=fechaIngreso;
+    }
+    
+  public Administrativo()
+    {
+        this("Sin Cargo", "Sin Trabajo", new GregorianCalendar(1981, 1,1));
     }
 
     public String getCargo() {

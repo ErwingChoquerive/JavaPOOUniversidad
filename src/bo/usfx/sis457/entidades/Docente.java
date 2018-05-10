@@ -37,6 +37,14 @@ public class Docente extends Persona {
         this("Sin titulo", 0, "Sin asignaturas");
     }
 
+    public Docente(String cargo, String lugarTrabajo, String fechaIngreso, String carnetIdentidad, String nombre, Calendar fechaNacimientoCalendario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Docente(String cargo, String lugarTrabajo, String fechaIngreso, String carnetIdentidad, String nombre, Calendar fechaNacimientoCalendario, Calendar fechaIngresoCalendario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getAñosExperiencia() {
         return AñosExperiencia;
     }
