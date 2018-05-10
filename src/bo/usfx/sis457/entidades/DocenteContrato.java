@@ -27,6 +27,11 @@ public class DocenteContrato extends Docente
         super();
         this.NumeroContrato= numeroContrato;
     }
+    
+    public DocenteContrato()
+    {
+        this("Sin_numero");
+    }
 
     public String getNumeroContrato() {
         return NumeroContrato;

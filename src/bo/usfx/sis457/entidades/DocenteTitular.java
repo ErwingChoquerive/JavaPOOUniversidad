@@ -28,6 +28,7 @@ public class DocenteTitular  extends Docente
     }
 
     public DocenteTitular() {
+        this("Sin_Examen");
     }
 
     public String getExamenCompetencia() {

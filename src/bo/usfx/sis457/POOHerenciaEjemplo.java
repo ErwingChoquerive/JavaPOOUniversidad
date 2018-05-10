@@ -25,14 +25,14 @@ public class POOHerenciaEjemplo {
      */
     public static void main(String[] args) {
         personas = new ArrayList<>();
-        
+        /*
         personas.add(new Alumno("35-1", 1,"calculo"));
         personas.add(new Docente("Ingeniero en sistemas",2,"Licenciado en Informática", "222222", "Juan Perez", new GregorianCalendar(1980, 11,01)));
         personas.add(new Alumno("35-2", 1,"fisica"));
         personas.add(new Alumno("35-3", 1,"fisica"));
         personas.add(new Docente("Ingeniero Sistemas",2, "Programacion Basica"));
         personas.add(new Alumno("35-4", 1,"fisica"));
-        
+        */
         menuPrincipal();
     }
     
@@ -373,7 +373,7 @@ public class POOHerenciaEjemplo {
     public static void listarDocente() {
         limpiarConsola();
         System.out.println("+==================================================+");
-        System.out.println("| Listado de Docentes                            |");
+        System.out.println("| Listado de Docentes                              |");
         System.out.println("+==================================================+");
         int i = 0;
         for (Persona docente: personas) {
@@ -398,28 +398,28 @@ public class POOHerenciaEjemplo {
         
         limpiarConsola();
         try {
-            System.out.println("+==================================================+");
-            System.out.println("| Añadir Docente                                   |");
-            System.out.println("+==================================================+");
-            System.out.print("Introduzca el Carnet de Identidad: ");
-            carnetIdentidad = entradaTeclado.readLine();
-            System.out.print("Introduzca el Nombre: ");
-            nombre = entradaTeclado.readLine();
-            System.out.print("Introduzca la Fecha de Nacimiento (ejemplo: 1980-01-01): ");
-            fechaNacimiento = entradaTeclado.readLine();
-            System.out.print("Introduzca el Asignatura: ");
-            asignatura = entradaTeclado.readLine();
-            System.out.print("Introduzca el Título: ");
-            titulo = entradaTeclado.readLine();
-            System.out.print("Introduzca Años de Experiencia: ");
-            añosExperiencia = Integer.parseInt(entradaTeclado.readLine());
-            Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
-            Calendar fechaNacimientoCalendario = Calendar.getInstance();
-            fechaNacimientoCalendario.setTime(fechaNacimientoDate);
-            personas.add(new Docente(titulo,añosExperiencia ,asignatura,carnetIdentidad,
-                    nombre, fechaNacimientoCalendario));
-            System.out.println("Registro de Docente completado!");
-        } catch(Exception ex) {
+             System.out.println("+==================================================+");
+             System.out.println("| Añadir Docente                                   |");
+             System.out.println("+==================================================+");
+             System.out.print("Introduzca el Carnet de Identidad: ");
+             carnetIdentidad = entradaTeclado.readLine();
+             System.out.print("Introduzca el Nombre: ");
+             nombre = entradaTeclado.readLine();
+             System.out.print("Introduzca la Fecha de Nacimiento (ejemplo: 1980-01-01): ");
+             fechaNacimiento = entradaTeclado.readLine();
+             System.out.print("Introduzca el Asignatura: ");
+             asignatura = entradaTeclado.readLine();
+             System.out.print("Introduzca codigo de Título: ");
+             titulo = entradaTeclado.readLine();
+             System.out.print("Introduzca Años de Experiencia: ");
+             añosExperiencia = Integer.parseInt(entradaTeclado.readLine());
+             Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
+             Calendar fechaNacimientoCalendario = Calendar.getInstance();
+             fechaNacimientoCalendario.setTime(fechaNacimientoDate);
+             personas.add(new Docente(titulo,añosExperiencia ,asignatura,carnetIdentidad,
+                   nombre, fechaNacimientoCalendario));
+             System.out.println("Registro de Docente completado!");
+           } catch(Exception ex) {
             System.out.println("Error: " + ex.getMessage());
         }
     }
@@ -763,7 +763,7 @@ public class POOHerenciaEjemplo {
             fechaNacimiento = entradaTeclado.readLine();
             System.out.print("Introduzca el Asignatura: ");
             asignatura = entradaTeclado.readLine();
-            System.out.print("Introduzca el Título: ");
+            System.out.print("Introduzca codigo de Título: ");
             titulo = entradaTeclado.readLine();
             System.out.print("Introduzca Años de Experiencia: ");
             añosExperiencia = Integer.parseInt(entradaTeclado.readLine());
@@ -850,7 +850,7 @@ public class POOHerenciaEjemplo {
         System.out.println("+==================================================+");
         int i = 0;
         for (Persona docenteContrato: personas) {
-            if (docenteContrato instanceof DocenteTitular) {
+            if (docenteContrato instanceof DocenteContrato) {
                 i++;
                 System.out.println(i + ": " + docenteContrato);
             }
@@ -883,7 +883,7 @@ public class POOHerenciaEjemplo {
             fechaNacimiento = entradaTeclado.readLine();
             System.out.print("Introduzca el Asignatura: ");
             asignatura = entradaTeclado.readLine();
-            System.out.print("Introduzca el Título: ");
+            System.out.print("Introduzca codigo de Título: ");
             titulo = entradaTeclado.readLine();
             System.out.print("Introduzca Años de Experiencia: ");
             añosExperiencia = Integer.parseInt(entradaTeclado.readLine());
