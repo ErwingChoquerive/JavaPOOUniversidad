@@ -451,7 +451,7 @@ public class POOHerenciaEjemplo {
                 docente.setAsignaturas(entradaTeclado.readLine());
                 System.out.print("Modificar  Título : '" + docente.getTitulo() + "': ");
                 docente.setTitulo(entradaTeclado.readLine());
-                System.out.println("Modificar Años Experiencia'" + docente.getAñosExperiencia() + "': ");
+                System.out.print("Modificar Años Experiencia'" + docente.getAñosExperiencia() + "': ");
                 docente.setAñosExperiencia(Integer.parseInt(entradaTeclado.readLine()));
                 personas.set(id, docente);
                 System.out.println("Registro del Docente modificado!");
@@ -566,7 +566,7 @@ public class POOHerenciaEjemplo {
                 alumno.setCarnetUniversitario(entradaTeclado.readLine());
                 System.out.print("Introduzca el Semestre: ");
                 alumno.setSemestre(Integer.parseInt(entradaTeclado.readLine()));
-                System.out.println("Modificar Asignatura '"+ alumno.getAsignaturas() + "' : ");
+                System.out.print("Modificar Asignatura '"+ alumno.getAsignaturas() + "' : ");
                 alumno.setAsignaturas(entradaTeclado.readLine());
                 personas.set(id, alumno);
                 System.out.println("Registro de Alumno modificado!");
@@ -806,7 +806,7 @@ public class POOHerenciaEjemplo {
                 docenteTitular.setAsignaturas(entradaTeclado.readLine());
                 System.out.print("Introduzca el Título del Docente: '"+ docenteTitular.getTitulo() + "': ");
                 docenteTitular.setTitulo(entradaTeclado.readLine());
-                System.out.println("Modificar Años de Experiencia: '" + docenteTitular.getAñosExperiencia()+"' : ");
+                System.out.print("Modificar Años de Experiencia: '" + docenteTitular.getAñosExperiencia()+"' : ");
                 docenteTitular.setAñosExperiencia(Integer.parseInt(entradaTeclado.readLine()));
                 System.out.print("Modificar Examen de Competencia '" + docenteTitular.getExamenCompetencia()+ "': ");
                 docenteTitular.setExamenCompetencia(entradaTeclado.readLine());
@@ -926,7 +926,7 @@ public class POOHerenciaEjemplo {
                 docenteContrato.setAsignaturas(entradaTeclado.readLine());
                 System.out.print("Introduzca el Título del Docente: '"+ docenteContrato.getTitulo() + "' : ");
                 docenteContrato.setTitulo(entradaTeclado.readLine());
-                System.out.println("Modificar Años de Experiencia: '" + docenteContrato.getAñosExperiencia()+"' : ");
+                System.out.print("Modificar Años de Experiencia: '" + docenteContrato.getAñosExperiencia()+"' : ");
                 docenteContrato.setAñosExperiencia(Integer.parseInt(entradaTeclado.readLine()));
                 System.out.print("Modificar el Numero de Contrato '" + docenteContrato.getNumeroContrato()+ "': ");
                 docenteContrato.setNumeroContrato(entradaTeclado.readLine());
