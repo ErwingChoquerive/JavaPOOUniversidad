@@ -70,7 +70,9 @@ public class Docente extends Persona {
                 + ", CarnetIdentidad=" + this.CarnetIdentidad 
                 + ", Nombre=" + this.Nombre 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Titulo=" + Titulo + ", Años_Experiencia=" + AñosExperiencia + '}';
+                + ", Titulo=" + this.Titulo 
+                +" , Asignaturas= " + this.Asignaturas
+                + ", Años_Experiencia=" + this.AñosExperiencia + '}';
     }
     
 }

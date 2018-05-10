@@ -26,12 +26,12 @@ public class POOHerenciaEjemplo {
     public static void main(String[] args) {
         personas = new ArrayList<>();
         
-        personas.add(new Alumno("35-1", 1));
-        personas.add(new Profesor("1", "Licenciado en Informática", "222222", "Juan Perez", new GregorianCalendar(1980, 11,01)));
-        personas.add(new Alumno("35-2", 1));
-        personas.add(new Alumno("35-3", 1));
-        personas.add(new Profesor("2", "Ingeniero de Sistemas"));
-        personas.add(new Alumno("35-4", 1));
+        personas.add(new Alumno("35-1", 1,"calculo"));
+        personas.add(new Docente("Ingeniero en sistemas",2,"Licenciado en Informática", "222222", "Juan Perez", new GregorianCalendar(1980, 11,01)));
+        personas.add(new Alumno("35-2", 1,"fisica"));
+        personas.add(new Alumno("35-3", 1,"fisica"));
+        personas.add(new Docente("Ingeniero Sistemas",2, "Programacion Basica"));
+        personas.add(new Alumno("35-4", 1,"fisica"));
         
         menuPrincipal();
     }
@@ -47,7 +47,7 @@ public class POOHerenciaEjemplo {
         System.out.println("| - Ejemplo de Herencia                            |");
         System.out.println("+==================================================+");
         System.out.println("| 1) Gestión de Personas                           |");
-        System.out.println("| 2) Gestión de Profesores                         |");
+        System.out.println("| 2) Gestión de Docentes                           |");
         System.out.println("| 3) Gestión de Alumnos                            |");
         System.out.println("| 0) Salir                                         |");
         System.out.println("+==================================================+");
@@ -59,7 +59,7 @@ public class POOHerenciaEjemplo {
                 menuPersonas();
                 break;
             case "2":
-                menuProfesores();
+                menuDocentes();
                 break;
             case "3":
                 menuAlumnos();
@@ -95,19 +95,19 @@ public class POOHerenciaEjemplo {
         }
     }
     
-    public static void menuProfesores() {
+    public static void menuDocentes() {
         // Declaracion de las variables
         Scanner entradaTeclado;
         String opcion;
 
         limpiarConsola();
         System.out.println("+==================================================+");
-        System.out.println("| Gestión de Profesores                            |");
+        System.out.println("| Gestión de Docentes                              |");
         System.out.println("+==================================================+");
-        System.out.println("| 1) Listar Profesores                             |");
-        System.out.println("| 2) Añadir Profesor                               |");
-        System.out.println("| 3) Modificar Profesor                            |");
-        System.out.println("| 4) Borrar Profesor                               |");
+        System.out.println("| 1) Listar Docente                                |");
+        System.out.println("| 2) Añadir Docente                                |");
+        System.out.println("| 3) Modificar Docente                             |");
+        System.out.println("| 4) Borrar Docente                                |");
         System.out.println("| 0) Volver al Menú Principal                      |");
         System.out.println("+==================================================+");
         System.out.print("Qué desea realizar? ");
@@ -115,24 +115,24 @@ public class POOHerenciaEjemplo {
         opcion = entradaTeclado.next();
         switch (opcion) {
             case "1":
-                listarProfesores();
+                listarDocente();
                 volverMenu();
-                menuProfesores();
+                menuDocentes();
                 break;
             case "2":
-                anadirProfesor();
+                anadirDocente();
                 volverMenu();
-                menuProfesores();
+                menuDocentes();
                 break;
             case "3":
-                modificarProfesor();
+                modificarDocente();
                 volverMenu();
-                menuProfesores();
+                menuDocentes();
                 break;
             case "4":
-                borrarProfesor();
+                borrarDocente();
                 volverMenu();
-                menuProfesores();
+                menuDocentes();
                 break;
             default:
                 menuPrincipal();
@@ -223,16 +223,16 @@ public class POOHerenciaEjemplo {
         return existe?i:-1;
     }
     
-    public static void listarProfesores() {
+    public static void listarDocente() {
         limpiarConsola();
         System.out.println("+==================================================+");
         System.out.println("| Listado de Profesores                            |");
         System.out.println("+==================================================+");
         int i = 0;
-        for (Persona profesor: personas) {
-            if (profesor instanceof Profesor) {
+        for (Persona docente: personas) {
+            if (docente instanceof Docente) {
                 i++;
-                System.out.println(i + ": " + profesor);
+                System.out.println(i + ": " + docente);
             }
         }
         if (i == 0) {
@@ -240,18 +240,19 @@ public class POOHerenciaEjemplo {
         }
     }
     
-    public static void anadirProfesor() {
+    public static void anadirDocente() {
         String carnetIdentidad;
         String nombre;
         String fechaNacimiento;
-        String contrato;
+        String asignatura;
         String titulo;
+        int añosExperiencia;
         BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
         
         limpiarConsola();
         try {
             System.out.println("+==================================================+");
-            System.out.println("| Añadir Profesor                                  |");
+            System.out.println("| Añadir Docente                                   |");
             System.out.println("+==================================================+");
             System.out.print("Introduzca el Carnet de Identidad: ");
             carnetIdentidad = entradaTeclado.readLine();
@@ -259,48 +260,50 @@ public class POOHerenciaEjemplo {
             nombre = entradaTeclado.readLine();
             System.out.print("Introduzca la Fecha de Nacimiento (ejemplo: 1980-01-01): ");
             fechaNacimiento = entradaTeclado.readLine();
-            System.out.print("Introduzca el Contrato: ");
-            contrato = entradaTeclado.readLine();
+            System.out.print("Introduzca el Asignatura: ");
+            asignatura = entradaTeclado.readLine();
             System.out.print("Introduzca el Título: ");
             titulo = entradaTeclado.readLine();
+            System.out.print("Introduzca Años de Experiencia: ");
+            añosExperiencia = Integer.parseInt(entradaTeclado.readLine());
             Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
             Calendar fechaNacimientoCalendario = Calendar.getInstance();
             fechaNacimientoCalendario.setTime(fechaNacimientoDate);
-            personas.add(new Profesor(contrato, titulo, carnetIdentidad, nombre, fechaNacimientoCalendario));
+            personas.add(new Docente(titulo,añosExperiencia ,asignatura,carnetIdentidad, nombre, fechaNacimientoCalendario));
             System.out.println("Registro de Profesor completado!");
         } catch(Exception ex) {
             System.out.println("Error: " + ex.getMessage());
         }
     }
     
-    public static void modificarProfesor() {
+    public static void modificarDocente() {
         int id;
-        Profesor profesor;
+        Docente docente;
         BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
         
         limpiarConsola();
         System.out.println("+==================================================+");
-        System.out.println("| Modificar Profesor                               |");
+        System.out.println("| Modificar Docente                                |");
         System.out.println("+==================================================+");
         try {
-            System.out.print("Introduzca el Id del Profesor a Modificar: ");
+            System.out.print("Introduzca el Id del Docente a Modificar: ");
             id = buscarPersona(Integer.parseInt(entradaTeclado.readLine()));
             if (id > -1) {
-                profesor = (Profesor)personas.get(id);
-                System.out.print("Modificar el Carnet de Identidad '" + profesor.getCarnetIdentidad()+ "': ");
-                profesor.setCarnetIdentidad(entradaTeclado.readLine());
-                System.out.print("Modificar el Nombre '" + profesor.getNombre() + "': ");
-                profesor.setNombre(entradaTeclado.readLine());
-                System.out.print("Modificar la Fecha de Nacimiento '" + Utilitarios.getFechaCalendario(profesor.getFechaNacimiento()) + "': ");
+                docente = (Docente)personas.get(id);
+                System.out.print("Modificar el Carnet de Identidad '" + docente.getCarnetIdentidad()+ "': ");
+                docente.setCarnetIdentidad(entradaTeclado.readLine());
+                System.out.print("Modificar el Nombre '" + docente.getNombre() + "': ");
+                docente.setNombre(entradaTeclado.readLine());
+                System.out.print("Modificar la Fecha de Nacimiento '" + Utilitarios.getFechaCalendario(docente.getFechaNacimiento()) + "': ");
                 Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(entradaTeclado.readLine());
                 Calendar fechaNacimientoCalendario = Calendar.getInstance();
                 fechaNacimientoCalendario.setTime(fechaNacimientoDate);
-                profesor.setFechaNacimiento(fechaNacimientoCalendario);
-                System.out.print("Modificar el Contrato '" + profesor.getContrato()+ "': ");
-                profesor.setContrato(entradaTeclado.readLine());
+                docente.setFechaNacimiento(fechaNacimientoCalendario);
+               /* System.out.print("Modificar el Contrato '" + docente.getContrato()+ "': ");
+                docente.setContrato(entradaTeclado.readLine());*/
                 System.out.print("Introduzca el Título Universitario: ");
-                profesor.setTitulo(entradaTeclado.readLine());
-                personas.set(id, profesor);
+                docente.setTitulo(entradaTeclado.readLine());
+                personas.set(id, docente);
                 System.out.println("Registro de Profesor modificado!");
             } else {
                 System.out.println("El Registro de Profesor no existe!");
@@ -310,22 +313,22 @@ public class POOHerenciaEjemplo {
         }
     }
     
-    public static void borrarProfesor() {
+    public static void borrarDocente() {
         int id;
         BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
         
         limpiarConsola();
         System.out.println("+==================================================+");
-        System.out.println("| Borrar Profesor                                  |");
+        System.out.println("| Borrar Docente                                   |");
         System.out.println("+==================================================+");
         try {
-            System.out.print("Introduzca el Id del Profesor a Borrar: ");
+            System.out.print("Introduzca el Id del Docente a Borrar: ");
             id = buscarPersona(Integer.parseInt(entradaTeclado.readLine()));
             if (id > -1) {
                 personas.remove(id);
-                System.out.println("Registro de Profesor borrado!");
+                System.out.println("Registro de Docente borrado!");
             } else {
-                System.out.println("El Registro de Profesor no existe!");
+                System.out.println("El Registro de Docente no existe!");
             }
         } catch(Exception ex) {
             System.out.println("Error: " + ex.getMessage());
@@ -354,6 +357,7 @@ public class POOHerenciaEjemplo {
         String nombre;
         String fechaNacimiento;
         String carnetUniversitario;
+        String asignatura;
         int semestre;
         BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
         
@@ -372,10 +376,12 @@ public class POOHerenciaEjemplo {
             carnetUniversitario = entradaTeclado.readLine();
             System.out.print("Introduzca el Semestre: ");
             semestre = Integer.parseInt(entradaTeclado.readLine());
+            System.out.print("Introduzca la Asignatura: ");
+            asignatura = entradaTeclado.readLine();
             Date fechaNacimientoDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaNacimiento);
             Calendar fechaNacimientoCalendario = Calendar.getInstance();
             fechaNacimientoCalendario.setTime(fechaNacimientoDate);
-            personas.add(new Alumno(carnetUniversitario, semestre, carnetIdentidad, nombre, fechaNacimientoCalendario));
+            personas.add(new Alumno(carnetUniversitario, semestre, asignatura , carnetIdentidad, nombre, fechaNacimientoCalendario));
             System.out.println("Registro de Profesor completado!");
         } catch(Exception ex) {
             System.out.println("Error: " + ex.getMessage());

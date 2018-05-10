@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package bo.usfx.sis457.entidades;
+import bo.usfx.sis457.Utilitarios;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -48,5 +49,16 @@ public class Administrativo extends Persona
 
     public void setLugarTrabajo(String LugarTrabajo) {
         this.LugarTrabajo = LugarTrabajo;
+    }
+    
+    @Override
+    public String toString() {
+        return "Administrativo{" 
+                + "Id=" + this.Id 
+                + ", CarnetIdentidad=" + this.CarnetIdentidad 
+                + ", Nombre=" + this.Nombre 
+                + ", FechaIngreso=" + Utilitarios.getFechaCalendario(this.FechaIngreso)
+                + ", Cargo=" + this.Cargo 
+                + ", Lugar_Trabajo =" + this.LugarTrabajo + '}';
     }
 }

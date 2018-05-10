@@ -5,6 +5,7 @@
  */
 package bo.usfx.sis457.entidades;
 
+import bo.usfx.sis457.Utilitarios;
 import java.util.Calendar;
 
 /**
@@ -33,5 +34,17 @@ public class DocenteContrato extends Docente
 
     public void setNumeroContrato(String NumeroContrato) {
         this.NumeroContrato = NumeroContrato;
+    }
+    
+    @Override
+    public String toString() {
+        return "Docente Contrato{" 
+                + "Id=" + this.Id 
+                + ", CarnetIdentidad=" + this.CarnetIdentidad 
+                + ", Nombre=" + this.Nombre 
+                + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
+                + ", Titulo=" + Titulo 
+                + ", NumeroContrato= " + NumeroContrato
+                + ", Años_Experiencia=" + AñosExperiencia + '}';
     }
 }
