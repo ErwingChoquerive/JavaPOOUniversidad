@@ -12,32 +12,48 @@ import java.util.Calendar;
  *
  * @author Marcelo
  */
-public class Profesor extends Persona {
-    protected String Contrato;
+
+// BORRAR PROPIEDAD CONTRATO Y CREAR AÑOS_EXPERIENCIA Y ASIGNATURAS
+public class Docente extends Persona {
     protected String Titulo;
+    protected int AñosExperiencia;
+    protected String Asignaturas;
  
-    public Profesor(String contrato, String titulo, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
+    public Docente(String titulo,int añosExperiencia,String asignaturas, String carnetIdentidad, String nombre, Calendar fechaNacimiento) {
         super(carnetIdentidad, nombre, fechaNacimiento);
-        this.Contrato = contrato;
         this.Titulo = titulo;
+        this.AñosExperiencia = añosExperiencia;
+        this.Asignaturas= asignaturas;
     }
 
-    public Profesor(String contrato, String titulo) {
-        this.Contrato = contrato;
+    public Docente(String titulo, int añosExperiencia, String asignaturas) 
+    {
         this.Titulo = titulo;
+        this.AñosExperiencia= añosExperiencia;
+        this.Asignaturas= asignaturas;
     }
 
-    public Profesor() {
-        
+    public Docente() {
+        this("Sin titulo", 0, "Sin asignaturas");
     }
 
-    public String getContrato() {
-        return Contrato;
+    public int getAñosExperiencia() {
+        return AñosExperiencia;
     }
 
-    public void setContrato(String Contrato) {
-        this.Contrato = Contrato;
+    public void setAñosExperiencia(int AñosExperiencia) {
+        this.AñosExperiencia = AñosExperiencia;
     }
+
+    public String getAsignaturas() {
+        return Asignaturas;
+    }
+
+    public void setAsignaturas(String Asignaturas) {
+        this.Asignaturas = Asignaturas;
+    }
+    
+    
 
     public String getTitulo() {
         return Titulo;
@@ -49,12 +65,12 @@ public class Profesor extends Persona {
 
     @Override
     public String toString() {
-        return "Profesor{" 
+        return "Docente{" 
                 + "Id=" + this.Id 
                 + ", CarnetIdentidad=" + this.CarnetIdentidad 
                 + ", Nombre=" + this.Nombre 
                 + ", FechaNacimiento=" + Utilitarios.getFechaCalendario(this.FechaNacimiento)
-                + ", Contrato=" + Contrato + ", Titulo=" + Titulo + '}';
+                + ", Titulo=" + Titulo + ", Años_Experiencia=" + AñosExperiencia + '}';
     }
     
 }
